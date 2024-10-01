@@ -10,10 +10,12 @@ namespace oop_hotel
     {
         List<Employee> EmployeeList = new List<Employee>();
         public string JobTitle { get; set; }
+        public string WorkingArea { get; set; }
 
-        public Employee(string name, int age, int idnumber, (int year, int month, int day) startDate, double salary, string department, string jobtitle) : base(name, age, idnumber, startDate, salary, department)
+        public Employee(string name, int age, int idnumber, (int year, int month, int day) startDate, double salary, string department, string jobtitle,string workingArea) : base(name, age, idnumber, startDate, salary, department)
         {
             JobTitle = jobtitle;
+            WorkingArea = workingArea;
         }
         public override void DisplayInfo()
         {
@@ -21,7 +23,7 @@ namespace oop_hotel
         }
         public virtual void Work()
         {
-            Console.WriteLine($"This employee is currently working. ");
+            Console.WriteLine($"This employees working area is {WorkingArea}. ");
         }
 
     }

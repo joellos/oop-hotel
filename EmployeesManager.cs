@@ -13,15 +13,19 @@ namespace oop_hotel
         List<Manager> CleaningStaffManagers = new List<Manager>();
         List<Employee> CleaningStaffEmployees = new List<Employee>();
         List<Employee> KitchenStaffEmployees = new List<Employee>();
+        List<Consultant> ConsultStaffEmployees = new List<Consultant>();
 
         Manager manager1 = new Manager("Lisa Ledarsson", 40, 1, (2022, 03, 15), 40000.00, "Kitchen");
-        Manager manager3 = new Manager("Abdi Ledarsson", 35, 2, (2022, 03, 15), 40000.00, "Cleaning Firm");
+        Manager manager3 = new Manager("Abdi Olsson", 35, 2, (2022, 03, 15), 40000.00, "Cleaning Firm");
         Manager manager2 = new Manager("Alfons Åberg", 45, 2, (2020, 03, 15), 40000.00, "Cleaning Firm");
-        Employee employee1 = new Employee("Abdul Abdulsson", 40, 1, (2022, 03, 15), 5000.00, "Kitchen", "Cook");
-        Employee employee2 = new Employee("Abdul Abdulsson", 40, 1, (2022, 03, 15), 5000.00, "Cleaning Firm", "Cleaner");
+        Employee employee1 = new Employee("Bob Bobsson", 40, 1, (2022, 03, 15), 5000.00, "Kitchen", "Cook", "Bakery");
+        Employee employee2 = new Employee("Abdul Abdulsson", 40, 1, (2022, 03, 15), 5000.00, "Cleaning Firm", "Cleaner", "Mopping");
+        Consultant consult1 = new Consultant("Lars Ohlsson", 23, 99, (2022, 01, 12), 0, 300.00, "Consult Expert AB", "Kitchen");
+        Consultant consult2 = new Consultant("Reidar Åberg", 65, 98, (2000, 02, 23), 0, 600.00, "Consult Expert AB", "Cleaning");
 
         public void ShowMenuStaff()
         {
+            AddToLIst();
             bool exit = false;
             while (!exit)
             {
@@ -39,41 +43,38 @@ namespace oop_hotel
                 {
                     switch (choice)
                     {
-
                         case 1:
-                            AddToLIst();
+                            Console.Clear();
                             PrintKitchenStaffManager();
                             Console.ReadKey();
                             break;
 
                         case 2:
-                            AddToLIst();
+                            Console.Clear();
                             PrintCleaningStaffManagers();
                             Console.ReadKey();
                             break;
                         case 3:
-                            AddToLIst();
+                            Console.Clear();
                             PrintKitchenStaffEmployees();
                             Console.ReadKey();
                             break;
                         case 4:
-                            AddToLIst();
+                            Console.Clear();
                             PrintCleaningStaffEmployees();
                             Console.ReadKey();
                             break;
                         case 5:
-                            Consultant consult1 = new Consultant("Ivan Olsson", 25, 1, (2022, 08, 15), 0, 500, "AdviceMaster", "Kitchen developping");
-
-                            consult1.DisplayInfo();
-                            consult1.GiveAdvice();
+                            Console.Clear();
+                            PrintConsultManagers();
                             Console.ReadKey();
                             break;
                         case 6:
                             Menu menu = new Menu();
                             menu.ShowMenu();
                             break;
-                            case 7:
-                                Environment.Exit(0);
+                        case 7:
+                            Environment.Exit(0);
                             break;
                         default:
                             Console.WriteLine("Ogiltigt val");
@@ -83,14 +84,11 @@ namespace oop_hotel
                 else
                 {
                     Console.WriteLine("Ogilitigt inmatinning");
-
                     Console.ReadKey();
                 }
 
 
             }
-
-
         }
 
         public void AddToLIst()
@@ -100,7 +98,8 @@ namespace oop_hotel
             CleaningStaffManagers.Add(manager3);
             KitchenStaffEmployees.Add(employee1);
             CleaningStaffEmployees.Add(employee2);
-
+            ConsultStaffEmployees.Add(consult1);
+            ConsultStaffEmployees.Add(consult2);
         }
 
 
@@ -113,7 +112,6 @@ namespace oop_hotel
                     Console.WriteLine();
                     i.DisplayInfo();
                     i.HoldMeeting();
-
                 }
                 return true;
             }
@@ -132,9 +130,6 @@ namespace oop_hotel
                     Console.WriteLine();
                     i.DisplayInfo();
                     i.Work();
-
-
-
                 }
                 return true;
             }
@@ -152,7 +147,7 @@ namespace oop_hotel
                 {
                     Console.WriteLine();
                     i.DisplayInfo();
-
+                    i.Work();
                 }
                 return true;
             }
@@ -170,7 +165,6 @@ namespace oop_hotel
                 {
                     Console.WriteLine();
                     i.DisplayInfo();
-
                 }
                 return true;
             }
@@ -180,7 +174,23 @@ namespace oop_hotel
                 return false;
             }
         }
-
-
+        public bool PrintConsultManagers()
+        {
+            if (ConsultStaffEmployees.Count > 0)
+            {
+                foreach (Consultant i in ConsultStaffEmployees)
+                {
+                    Console.WriteLine();
+                    i.DisplayInfo();
+                    i.GiveAdvice();
+                }
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Du har inga anställda.");
+                return false;
+            }
+        }
     }
 }
