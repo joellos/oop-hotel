@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 
 namespace oop_hotel
 {
-    internal class Hotel
+    public class Hotel
     {
         private List<HotelBookning> _hotelBookings = new();
 
@@ -15,13 +16,14 @@ namespace oop_hotel
 
         //    _hotelBookings.Add(hotelBookning);
         //}
-
         public void ShowAllBooking()
         {
             foreach (var i in _hotelBookings)
             {
                 Console.WriteLine(i.ToString());
+               
             }
+            Console.ReadLine();
         }
         public void CreateBooking()
         {
@@ -29,29 +31,7 @@ namespace oop_hotel
 
             _hotelBookings.Add(hotelBookning);
         }
-        //public void ContinueBooking()
-        //{
-        //    bool continueBooking = true;
 
-        //   while (continueBooking)
-        //    {
-        //        Console.WriteLine();
-        //        string response = Console.ReadLine();
-        //        AddBooking(new HotelBookning());
-
-        //        if (response == "ja")
-        //        {
-        //            continueBooking = true;
-        //        }
-        //        else if ( response == "nej")
-        //        {
-        //            break;
-        //        }
-        //        else
-        //        {
-        //            Console.WriteLine("Skriv ja eller nej");
-        //        }
-        //    }
-        //}
+      
     }
 }

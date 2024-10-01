@@ -17,9 +17,9 @@ namespace oop_hotel
 
         public HotelBookning()
         {
-            Name = SetName();
-            StartTime = SetDate(true);
-            EndTime = SetDate(false);
+           this.Name = SetName();
+            this.StartTime = SetDate(true);
+           this.EndTime = SetDate(false);
 
         }
         public string SetName()

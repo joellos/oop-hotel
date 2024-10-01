@@ -16,7 +16,7 @@
 
             //hotel.ShowAllBooking();
 
-            
+
             //Console.WriteLine(hotelBookning.ShowBooking());
 
             Menu meny = new Menu();

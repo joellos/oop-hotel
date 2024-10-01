@@ -9,7 +9,7 @@ namespace oop_hotel
     public class Menu
     {
         Hotel hotel = new Hotel();
-
+        EmployeesManager employees = new EmployeesManager();
 
         public void ShowMenu()
         {
@@ -17,9 +17,11 @@ namespace oop_hotel
             while (!exit)
             {
                 Console.Clear();
-                Console.WriteLine("[1] Lägg till en bokning");
-                Console.WriteLine("[2] Visa alla bokningar");
-                Console.WriteLine("[3] Avsluta programmet");
+                Console.WriteLine("[1] Book");
+                Console.WriteLine("[2] Show bookings");
+                Console.WriteLine("[3] Show the list of the staff");
+                Console.WriteLine("[4] Close programm");
+                
                 int choice;
 
                 if (int.TryParse(Console.ReadLine(), out choice))
@@ -37,8 +39,12 @@ namespace oop_hotel
                             hotel.ShowAllBooking();
                             break;
                         case 3:
-                            Environment.Exit(0);
+                            employees.ShowMenuStaff();
                             break;
+                        case 4:
+                            Environment.Exit(0);
+                            break; 
+                       
                         default:
                             Console.WriteLine("Ogiltigt val");
                             break;
@@ -51,44 +57,7 @@ namespace oop_hotel
                     Console.ReadKey();
                 }
 
-                //int choice;
-                //do
-                //{
 
-                //    Console.WriteLine("[1] Lägg till en bokning");
-                //    Console.WriteLine("[2] Visa alla bokningar");
-                //    Console.WriteLine("[3] Avsluta programmet");
-
-                //    if (int.TryParse(Console.ReadLine(), out choice))
-                //    {
-                //        switch (choice)
-                //        {
-
-                //            case 1:
-
-                //                hotel.CreateBooking();
-                //                break;
-
-                //            case 2:
-
-                //                hotel.ShowAllBooking();
-                //                break;
-                //            case 3:
-                //                Environment.Exit(0);
-                //                break;
-                //            default:
-                //                Console.WriteLine("Ogiltigt val");
-                //                break;
-                //        }
-                //    }
-                //    else
-                //    {
-                //        Console.WriteLine("Ogilitigt inmatinning");
-                //    }
-
-
-
-                //} while (choice > 0);
             }
 
 
